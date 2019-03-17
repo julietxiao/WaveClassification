@@ -20,7 +20,7 @@ def extract_data(readfile):
             line = f.readline()
     return data
 
-# 将原始数据提取最大值然后归一化,再写入新的文件中
+# 将原始数据提取最大值然后归一化
 def normalize(data,extract_p=120):
     # 每32个点是一个周期,从中选取绝对值最大的两个值
     # 对UA,UB,UC,IA,IB,IC都这样做一遍
@@ -40,18 +40,27 @@ def normalize(data,extract_p=120):
     new_data = np.array(new_data)
     return new_data
 
+# 将处理后的数据写入新的文件中
+def wirte_data(data,filepath):
+
+    return 0
+
+
 # 将原本波形中的4800的特征点筛选出一部分
 path = 'data'
 writePath = 'processedData'
 # 当前路径下所有数据文件
 for filename in os.listdir(path):
     file_path = os.path.join(path, filename)
-    file_path_w = os.path.join(writePath,filename)
+    file_path_w = os.path.join(writePath, filename)
     data = extract_data(file_path)
-    print (data)
+    # print (data)
     data = np.array(data)  #data: 4800*6
-    # 将数据分成6条波形数据
+    # 将数据转置成6条波形数据
     data = np.transpose(data) #data: 6*4800
     data = normalize(data)
-    print (data[3])
-    break
+    wirte_data(data, file_path_w)
+    # 将处理后的数据写入新的文件中
+    np.savetxt(file_path_w, data)
+
+
