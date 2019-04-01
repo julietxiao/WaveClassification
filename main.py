@@ -2,7 +2,7 @@
 from Cluster import *
 # 读入处理后的数据,这一步可以自行调整
 path = 'processedData'
-#此时得到的数据类型(502, 6, 3840)
+#此时得到的数据类型(502, 6, 3840),numpy里的array类型
 # 数据格式是(样本数,视角数,各个视角维度)
 data = readData(path)
 #此时维度换了一下,得到(6, 502, 3840)
