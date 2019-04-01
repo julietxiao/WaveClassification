@@ -40,11 +40,6 @@ def normalize(data,extract_p=120):
     new_data = np.array(new_data)
     return new_data
 
-# 将处理后的数据写入新的文件中
-def wirte_data(data,filepath):
-
-    return 0
-
 
 # 将原本波形中的4800的特征点筛选出一部分
 path = 'data'
