@@ -2,7 +2,7 @@
 	一个样本中1个侧面数据归一化后的结果
 '''
 import os
-import pandas as pd 
+import pandas as pd
 import numpy as np
 import math
 
